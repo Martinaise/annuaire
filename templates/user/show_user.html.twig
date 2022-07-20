@@ -1,0 +1,29 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!
+{% endblock %}
+
+{% block body %}
+
+  {# {{ dump(user) }}  #}
+ 
+ {# pour montrer tous les messages envoyer a un utilisateur, on fait une boucle#}
+ 
+ <div class="container">
+	{% for item in user.messages %}
+		<p>{{ item.contenu }}</p>
+	{% endfor %} 
+  </div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+

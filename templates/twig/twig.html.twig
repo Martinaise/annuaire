@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TwigController!{% endblock %}
+
+{% block body %}
+<div class="container">
+<h4>text de la variable: {{ text |capitalize }}</h4>
+<p> resultat = {{ result }}</p>
+<p>  {{date_du_jour| date("m/d/y")}}</p>   
+<p>{{tableau | length}}</p>
+<ul>
+ {% for elem in tableau %}
+ <li> {{ elem }}</li>
+ {% endfor %}
+ </ul>
+
+ {% if test is empty %}
+ <p>ok</p>
+  {% endif %}
+</div>
+
+{% endblock %}

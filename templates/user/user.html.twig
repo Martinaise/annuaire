@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+<div class="container d-flex justify-content-end mt-5">
+<a  class="btn btn-primary d-inline-block float-right" href="{{path('app_add_user')}}"> Ajouter user</a>
+</div>
+<table class="table container">
+			<thead>
+				<tr>
+					<th scope="col">Nom</th>
+					<th scope="col">Prenom</th>
+					<th scope="col">Ville</th>
+					<th scope="col">email</th>
+					<th scope="col">salaire</th>
+					<th scope="col">Date de date naissance</th>
+					<th>Action</th>
+				</tr>
+				</tr>
+			</thead>
+			<tbody>
+				{% for user in liste_users %}
+				 {# on utilise la  methode {{user.getNom}}ici mais twig la transformeen {{user.nom }} #}
+					<tr>
+						<td >{{ user.nom}}</td>
+						<td>{{ user.Prenom }}</td>
+						<td >{{ user.ville}}</td>
+						<td >{{ user.email}}</td>
+						<td>{{ user.salaire}}</td>
+						<td>{{ user.dateNaissance |date('y-m-d')}}</td>
+
+						<td>
+						<a class="btn btn-primary" href="{{path('app_detail_user', {'id' : user.id}) }}">voir</a>
+						<a   class="btn btn-danger" href="{{path('app_delete_user', {'id' : user.id}) }}">supprimer</a>
+						<a  class="btn btn-warning" href="{{path('app_edit_user', {'id' : user.id}) }}">modiffier</a>
+						<a  class="btn btn-info" href="{{path('app_message_new', {'id' : user.id}) }}">envoyer un message</a>
+						
+						
+						
+						
+						
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+
+
+{% endblock %}
